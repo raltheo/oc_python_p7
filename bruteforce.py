@@ -36,6 +36,6 @@ class BruteForce():
 if __name__ == "__main__":
     bruteforce = BruteForce("./actions.csv", 500)
     best = bruteforce.run()
-    print(f"The best investment costs ${best[1]}. You will gain ${round(best[2] , 2)}. The recommended actions to buy are:")
+    print(f"The best investment costs ${best[1]}. You will gain ${round(best[2] , 2)} in two years. The recommended actions to buy are:")
     for action in best[0]:
         print(f"{action[0]} (cost: ${action[1]}, profit: {action[2]})")
