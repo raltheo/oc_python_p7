@@ -1,7 +1,7 @@
 import csv
 import itertools
 from tqdm import tqdm
-
+import datetime 
 
 class BruteForce():
     def __init__(self, path, max_price):
@@ -9,7 +9,7 @@ class BruteForce():
         self.data = []
         self.max_price = max_price
         with open(self.path, 'r') as file:
-            csv_reader = csv.reader(file, delimiter=";") #delimiteur ; 
+            csv_reader = csv.reader(file, delimiter=",") #delimiteur ; 
             next(csv_reader) #pour pas récuperer le titre
             for row in csv_reader:
                 self.data.append(row)
@@ -32,10 +32,17 @@ class BruteForce():
                     self.best_combo = [combo, prix, benefice]
         return self.best_combo
 
+# O(n**3)
 
 if __name__ == "__main__":
-    bruteforce = BruteForce("./actions.csv", 500)
+    start = datetime.datetime.now()
+    bruteforce = BruteForce("./actionstest.csv", 500)
+
     best = bruteforce.run()
     print(f"The best investment costs ${best[1]}. You will gain ${round(best[2] , 2)} in two years. The recommended actions to buy are:")
     for action in best[0]:
         print(f"{action[0]} (cost: ${action[1]}, profit: {action[2]})")
+
+    finish = datetime.datetime.now()
+    temps = finish - start
+    print(f"time elapsed : {temps}")

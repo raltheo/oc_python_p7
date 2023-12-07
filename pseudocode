@@ -1,0 +1,27 @@
+Algorithme Optimized
+Variables
+    wallet_limit ← 500
+    data ← ListeVide
+    best ← ListeVide
+    gain ← 0
+Début
+    importer les données depuis le fichier CSV, en les filtrants (prix et bénéfice positifs)
+
+    Pour chaque action dans les données:
+        Calculer le bénéfice en € pour chaque action
+        Ajouter le bénéfice calculé à l'action
+
+    Trier les données en fonction de l'indice de valeur (bénéfice divisé par prix) de manière décroissante
+
+    Pour chaque action triée dans les données:
+        Si le portefeuille peut supporter le coût de l'action:
+            Réduire le portefeuille du prix de l'action
+            Ajouter l'action à la liste des meilleures
+
+    Calculer le gain total en faisant la somme des bénéfices des meilleures actions
+
+    Afficher les meilleures actions 
+    Afficher le gain total
+    Afficher le coût total
+
+Fin
