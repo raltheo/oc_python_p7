@@ -26,8 +26,7 @@ class Optimized():
 
 
 
-# 100      prix
-# profit%  ??
+
 
 if __name__ == "__main__":
     start = datetime.datetime.now()
