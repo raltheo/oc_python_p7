@@ -22,8 +22,8 @@ class BruteForce():
                 prix = 0
                 benefice = 0
                 for action in combo:
-                    prix += int(action[1])
-                    benefice += int(action[2].replace("%", "")) * int(action[1]) / 100 * 2
+                    prix += float(action[1])
+                    benefice += float(action[2]) * float(action[1]) / 100 * 2
                 if prix > self.max_price: continue
                 if not self.best_combo:
                     self.best_combo = [combo, prix, benefice]
