@@ -1,5 +1,6 @@
 Algorithme Optimized
 Variables
+    chemin ← "chemin/vers/le/fichier.csv"
     wallet_limit ← 500
     data ← ListeVide
     best ← ListeVide

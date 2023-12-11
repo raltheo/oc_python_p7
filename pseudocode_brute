@@ -1,0 +1,31 @@
+Algorithme BruteForce
+Variables
+    chemin ← "chemin/vers/le/fichier.csv"
+    max_prix ← 500
+    données ← ListeVide
+    meilleure_combinaison ← ListeVide
+
+Début
+    importer les données depuis le fichier CSV
+
+    Pour i allant de 1 à la taille des données:
+        combinations ← Générer toutes les combinaisons possibles de i éléments parmi les données
+
+        Pour chaque combinaison dans combinations :
+            prix_total ← 0
+            bénéfice_total ← 0
+
+            Pour chaque action dans la combinaison :
+                ajout du prix dans prix_total
+                ajout du bénéfice dans bénéfice_total
+
+            Si prix_total est supérieur à max_prix, passer à la prochaine combinaison
+
+            Si meilleure_combinaison est vide :
+                meilleure_combinaison ← cette combinaison
+                passer à la prochaine combinaison
+            Si bénéfice_total est supérieur à meilleure_combinaison :
+                meilleure_combinaison ← cette combinaison
+
+    Renvoyer meilleure_combinaison
+Fin

@@ -17,13 +17,13 @@ class BruteForce():
 
     def run(self):
         for i in tqdm(range(1 , len(self.data), 1)): #commence a 1, on incrémente de 1 par 1
-            combinations = list(itertools.combinations(self.data, i))
+            combinations = list(itertools.combinations(self.data, i)) #exemple i = 2 : [(1,2),(1,3),(2,3)]
             for combo in combinations:
                 prix = 0
                 benefice = 0
                 for action in combo:
                     prix += float(action[1])
-                    benefice += float(action[2]) * float(action[1]) / 100 * 2
+                    benefice += float(action[2]) * float(action[1]) / 100
                 if prix > self.max_price: continue
                 if not self.best_combo:
                     self.best_combo = [combo, prix, benefice]
@@ -36,10 +36,10 @@ class BruteForce():
 
 if __name__ == "__main__":
     start = datetime.datetime.now()
-    bruteforce = BruteForce("./actionstest.csv", 500)
+    bruteforce = BruteForce("0.csv", 500)
 
     best = bruteforce.run()
-    print(f"The best investment costs ${best[1]}. You will gain ${round(best[2] , 2)} in two years. The recommended actions to buy are:")
+    print(f"The best investment costs ${best[1]}. You will gain ${round(best[2] , 2)} in one year. The recommended actions to buy are:")
     for action in best[0]:
         print(f"{action[0]} (cost: ${action[1]}, profit: {action[2]})")
 
