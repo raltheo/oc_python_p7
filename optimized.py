@@ -1,5 +1,4 @@
 import csv, datetime
-from pickletools import optimize
 
 class Optimized():
     def __init__(self, wallet_limit, path):
